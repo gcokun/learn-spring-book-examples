@@ -2,6 +2,7 @@ package ch3wiring.main;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Data
@@ -12,7 +13,7 @@ public class Person {
 
     @Autowired
     //If you only have one constructor unneeded
-    public Person(Parrot parrot) {
-        this.parrot = parrot;
+    public Person(@Qualifier("parrot2") Parrot parrot1) {
+        this.parrot = parrot1;
     }
 }
